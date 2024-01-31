@@ -7,20 +7,42 @@ public class DateForUng {
 
   public void start(){
     writeWelcome();
-    // .. TODO: RESTEN
+    getInputs();
+    if(isDateOldEnough()){
+      System.out.println("Din date er ikke for ung.");
+    } else {
+      System.out.println("Din date er for ung!");
+    }
   }
   
   public void writeWelcome() {
     System.out.println("Velkommen til er din date for ung");
   }
 
-  public static void getMinimumAge(int myAge){}
+  public void getInputs(){
+    Scanner scanner = new Scanner(System.in);
 
-  public static void isDateOlder(boolean args){}
+    System.out.println("Indtast din alder:");
 
-  public static void isDateOldEnough(boolean args){}
+    myAge = Integer.valueOf(scanner.nextLine());
 
-  public static void getInputs(){}
+    System.out.println("Indtast din dates alder:");
+
+    dateAge = Integer.valueOf(scanner.nextLine());
+  }
+
+  public int getMinimumAge(){
+    return (myAge / 2) + 7;
+  }
+
+  public boolean isDateOlder(){
+    return myAge < dateAge;
+  }
+
+  public boolean isDateOldEnough(){
+    return dateAge >= getMinimumAge();
+  }
+
 
   public static void main(String[] args) {
     DateForUng app = new DateForUng();
