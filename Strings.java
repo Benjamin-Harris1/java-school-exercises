@@ -4,11 +4,17 @@ public class Strings{
 
     public void start(){
         String[] nameParts = getNameParts();
-        System.out.println("Fornavn: " + nameParts[1]);
-        System.out.println("Mellemnavn: " + nameParts[2]);
-        System.out.println("Efternavn: " + nameParts[0]);
+        System.out.println("Fornavn: " + capitalize(nameParts[1]));
+        System.out.println("Mellemnavn: " + capitalize(nameParts[2]));
+        System.out.println("Efternavn: " + capitalize(nameParts[0]));
 
-        getFullName(nameParts);
+        String[] twoNames = {"Lupin", "Remus"};
+        String aFullName = getFullName(twoNames);
+        System.out.println(aFullName);
+
+        String[] threeNames = {"Potter", "Harry", "James"};
+        String aFullName2 = getFullName(threeNames);
+        System.out.println(aFullName2);
     }
 
     public String[] getNameParts(){
@@ -29,20 +35,30 @@ public class Strings{
         return new String[] {efternavn, fornavn, mellemnavn};
     }
 
-    public void getFullName(String lastName, String firstName, String middleName){
+    public String getFullName(String lastName, String firstName, String middleName){
         if (middleName == null) {
-            System.out.println(firstName + " " + lastName);
+            return firstName + " " + lastName;
         } else {
-            System.out.println(firstName + " " + middleName + " " + lastName);
+            return firstName + " " + middleName + " " + lastName;
         }
     }
 
-    public void getFullName(String lastName, String firstName){
-        getFullName("Harris", "Benjamin", null);
+    public String getFullName(String lastName, String firstName){
+        return getFullName("Harris", "Benjamin", null);
     }
 
-    public void getFullName(String[] nameParts){
-        getFullName(nameParts[0], nameParts[1], nameParts[2]);
+    public String getFullName(String[] nameParts){
+        if (nameParts.length == 3) {
+            return getFullName(nameParts[0], nameParts[1], nameParts[2]);
+        } else if (nameParts.length == 2){
+            return getFullName(nameParts[0], nameParts[1], null);
+        } else {
+            return "Indtast venligst fuldt navn!";
+        }
+    }
+
+    public String capitalize(String name){
+        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 
     public static void main(String[] args){
