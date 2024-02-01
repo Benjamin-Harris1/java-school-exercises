@@ -18,6 +18,10 @@ public class GennemSnitsBeregner{
 
         int antal = Integer.valueOf(scanner.nextLine());
 
+        System.out.println("Indtast venligst en række numre");
+
+        int nummer = Integer.valueOf(scanner.nextLine());        
+
         
 
     }
